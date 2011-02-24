@@ -1,15 +1,3 @@
-/*jslint white: true, evil: true,browser: true, onevar: true, undef: true, nomen: true, eqeqeq: true, plusplus: true, bitwise: true, regexp: true, newcap: true, immed: true, strict: true */
-/*global window: false, jQuery: false */
-/**
- * Slippy
- * Copyright (C) 2010, Jordi Boggiano
- * http://seld.be/ - j.boggiano@seld.be
- *
- * Licensed under the new BSD License
- * See the LICENSE file for details
- *
- * Version: 0.9.0
- */
 "use strict";
 
 // Slide deck module
