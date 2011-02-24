@@ -1,0 +1,7 @@
+What am i going to talk about ...
+-------------
+
+* architecture overview
+* tools i used
+* Mongo model and memory
+* Mongo performance tuning tips

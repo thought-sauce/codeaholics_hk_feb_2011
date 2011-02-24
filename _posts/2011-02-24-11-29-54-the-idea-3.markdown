@@ -1,0 +1,9 @@
+The idea
+-------------
+
+The program is simple in high level
+* download data
+* analyze data
+* generate results
+* simulation
+* UI / command line for all the above

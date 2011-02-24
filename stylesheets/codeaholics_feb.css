@@ -1,0 +1,33 @@
+div.slide {
+	-moz-box-shadow: 10px 10px 5px #888;
+	-webkit-box-shadow: 10px 10px 5px #888;
+	box-shadow: 10px 10px 5px #888;
+	
+	border: 1px solid #eeeeee;
+  padding: 20px;
+}
+
+#footer {
+	position: absolute;
+	bottom: 0px;
+	left: 43%;
+	margin-bottom: 50px;
+}
+
+div.subtext {
+  color: #CCC;
+  font-size: 50%;
+}
+
+h1 {
+	font-weight: bold;
+}
+
+h2 {
+  font-family: Arial, sans-serif;
+	margin-bottom: 50px;
+}
+
+h3 {
+	font-size: 2em;
+}

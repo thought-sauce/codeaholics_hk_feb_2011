@@ -1,0 +1,9 @@
+Tunings i did
+-------------
+
+* compare to Redis
+* index
+<div class="subtext">(every sort and find column, be careful of the index size)</div>
+* shorter names and data
+* query before updating
+* Capped collection (Caution of update)

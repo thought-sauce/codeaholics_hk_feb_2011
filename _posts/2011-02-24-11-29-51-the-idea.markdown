@@ -1,0 +1,9 @@
+The idea
+-------------
+
+RU05 is a group of 3 CS mates.
+
+in Jan 2010, we wanted to build something:
+* for fun
+* for money
+* within short time

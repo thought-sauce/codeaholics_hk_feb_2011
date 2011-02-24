@@ -1,0 +1,5 @@
+Issues
+-------------
+
+* 32-bits CPU
+* Windows

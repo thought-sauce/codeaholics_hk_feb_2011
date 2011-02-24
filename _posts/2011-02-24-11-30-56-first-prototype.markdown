@@ -1,0 +1,9 @@
+Our First Prototype
+-------------
+
+###Hardware
+Home Desktop
+###OS
+Windows
+###Software
+C, Ruby and plain text
