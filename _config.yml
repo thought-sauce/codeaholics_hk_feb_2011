@@ -5,7 +5,7 @@ email: tatonlto@gmail.com
 venue: boot.hk
 date: 2011-02-24
 
-destination: _site
+destination: pages
 permalink: /:year/:month/:day/:title
 auto: on
 pygments: true
