@@ -1,0 +1,22 @@
+<h2 id='mongo_embed_vs_relational'>Mongo: Embed vs Relational</h2>
+
+<h3 id='embed_denormalized'>Embed (de-normalized)</h3>
+<pre><code>
+company model:
+{
+  _id: "897132", name: "Thought Sauce", 
+  employee: {_id: "12345", name: "Eddie" }
+}
+</code></pre>
+<h3 id='relational_normalized'>Relational (normalized)</h3>
+<pre><code>
+company model:
+{
+  _id: "897132", name: "Thought Sauce"
+}
+</code></pre><pre><code>
+employee model:
+{
+  _id: "12345", name: "Eddie", company_id: "897132" 
+}
+</code></pre>

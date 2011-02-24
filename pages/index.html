@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <title>Codeaholics FEb</title>
+  <meta name="author" content="3dd13" />
+  <meta name="email" content="tatonlto@gmail.com" />
+  <meta name="author" content="boot.hk" />
+  <meta name="date" content="2011-02-24" />
+  <meta name="description" content="3dd13 is a Ruby On Rails / Scala / Java Developer and Penetration Tester working at Thought Sauce. Familiar with agile developement practices" />
+
+  <!-- Slippy structural styles -->
+  <link type="text/css" rel="stylesheet" href="slippy/src/slippy-0.9.0.css"/>
+  <!-- Syntax highlighting -->
+  <link type="text/css" rel="stylesheet" href="stylesheets/highlighter.css"/>
+  <!-- Slippy theme -->
+  <link type="text/css" rel="stylesheet" href="stylesheets/slippy-pure-big-font.css"/>
+
+  <link type="text/css" rel="stylesheet" href="stylesheets/codeaholics_feb.css"/>	
+
+
+  <!-- Slippy core file and dependencies -->
+  <script type="text/javascript" src="slippy/src/jquery-1.4.2.min.js"></script>
+  <script type="text/javascript" src="slippy/src/jquery.history.js"></script>
+  <script type="text/javascript" src="slippy/src/slippy-0.9.0.js"></script>
+
+  <!-- Slippy init code -->
+  <script type="text/javascript">
+  $(function() {
+    $(".slide").slippy({});
+  });
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div id="content">
+    
+
+
+	<div class="slide">
+	<h1 id='stock_trading'>Stock Trading</h1>
+
+<h2 id='by_scala_ruby_and_mongo'>by Scala, Ruby and Mongo</h2>
+</div>
+
+	<div class="slide">
+	<h2 id='the_idea'>The idea</h2>
+
+<p>RU05 is a group of 3 CS mates.</p>
+
+<p>in Jan 2010, we wanted to build something:</p>
+
+<ul>
+<li>for fun</li>
+
+<li>for money</li>
+
+<li>within short time</li>
+</ul>
+</div>
+
+	<div class="slide">
+	<h2 id='the_idea'>The idea</h2>
+
+<p>The program is simple in high level</p>
+
+<ul>
+<li>download data</li>
+
+<li>analyze data</li>
+
+<li>generate results</li>
+
+<li>simulation</li>
+
+<li>UI / command line for all the above</li>
+</ul>
+</div>
+
+	<div class="slide">
+	<h2 id='what_am_i_not_going_to_talk_about_'>What am I NOT going to talk about &#8230;</h2>
+
+<ul>
+<li>the secret part</li>
+
+<li>how i beat the market</li>
+</ul>
+</div>
+
+	<div class="slide">
+	<h2 id='what_am_i_going_to_talk_about_'>What am i going to talk about &#8230;</h2>
+
+<ul>
+<li>architecture overview</li>
+
+<li>tools i used</li>
+
+<li>Mongo model and memory</li>
+
+<li>Mongo performance tuning tips</li>
+</ul>
+</div>
+
+	<div class="slide">
+	<h1 id='architecture'>Architecture</h1>
+</div>
+
+	<div class="slide">
+	<h2 id='our_first_prototype'>Our First Prototype</h2>
+
+<h3 id='hardware'>Hardware</h3>
+
+<p>Home Desktop</p>
+
+<h3 id='os'>OS</h3>
+
+<p>Windows</p>
+
+<h3 id='software'>Software</h3>
+
+<p>C, Ruby and plain text</p>
+</div>
+
+	<div class="slide">
+	<h2 id='after_revamp__hardware'>After Revamp - Hardware</h2>
+
+<h3 id='production'>Production</h3>
+
+<p>Ubuntu 2G Ram 1.6GHz CPU</p>
+
+<h3 id='developement'>Developement</h3>
+
+<p>Windows and Macbooks</p>
+
+<h3 id='database'>Database</h3>
+
+<p>Mongo (32 bits and 64 bits)</p>
+</div>
+
+	<div class="slide">
+	<h2 id='after_revamp__software'>After Revamp - Software</h2>
+
+<h3 id='scala'>Scala</h3>
+
+<p>Swing, Scaml, Mongo (thru casbah)</p>
+
+<h3 id='crawler'>Crawler</h3>
+
+<p>Ruby, Mechanize</p>
+
+<h3 id='web_ui'>Web UI</h3>
+
+<p>Rails Mongoid, jquery.datatable</p>
+
+<h3 id='chart'>Chart</h3>
+
+<p>jQuery, jqplot</p>
+</div>
+
+	<div class="slide">
+	<h1 id='mongo'>Mongo</h1>
+
+<h1 id='model_and_memory'>Model and Memory</h1>
+</div>
+
+	<div class="slide">
+	<h2 id='mongo_embed_vs_relational'>Mongo: Embed vs Relational</h2>
+
+<h3 id='embed_denormalized'>Embed (de-normalized)</h3>
+<pre><code>
+company model:
+{
+  _id: "897132", name: "Thought Sauce", 
+  employee: {_id: "12345", name: "Eddie" }
+}
+</code></pre>
+<h3 id='relational_normalized'>Relational (normalized)</h3>
+<pre><code>
+company model:
+{
+  _id: "897132", name: "Thought Sauce"
+}
+</code></pre><pre><code>
+employee model:
+{
+  _id: "12345", name: "Eddie", company_id: "897132" 
+}
+</code></pre>
+</div>
+
+	<div class="slide">
+	<h2 id='mongo_embed_vs_relational'>Mongo: Embed vs Relational</h2>
+
+<p>recommendation is Embed</p>
+
+<blockquote>
+<p>&#8220;If performance is an issue, embed.&#8221;</p>
+</blockquote>
+
+<p>but i didn&#8217;t</p>
+</div>
+
+	<div class="slide">
+	<h2 id='mongo_embed'>Mongo: Embed</h2>
+
+<h3 id='pros'>Pros</h3>
+
+<ul>
+<li>Faster <div class='subtext'>(if company in memory, employee also in memory)</div></li>
+
+<li>Less index space</li>
+</ul>
+
+<h3 id='cons'>Cons</h3>
+
+<ul>
+<li>the single object can be too big <div class='subtext'>(4MB limit)</div></li>
+
+<li>complicated to run global queries on subdocument <div class='subtext'>(i.e. use map reduce to grab employee)</div></li>
+</ul>
+</div>
+
+	<div class="slide">
+	<h1 id='keep_things_in_memory'>Keep things in memory</h1>
+</div>
+
+	<div class="slide">
+	<h2 id='mongo_memory_handling'>Mongo: Memory Handling</h2>
+
+<h3 id='memory_mapped'>Memory Mapped</h3>
+
+<ul>
+<li>virtual memory <div class='subtext'>(OS virtual memory manager, LRU)</div></li>
+
+<li>cache index and data</li>
+
+<li>one cache <div class='subtext'>not OS cache and database cache</div></li>
+
+<li>collection tends to be stick together</li>
+
+<li>auto grow =&gt; Memory Hungry</li>
+</ul>
+</div>
+
+	<div class="slide">
+	<h2 id='so_why_am_i_using_relational'>So, why am i using relational</h2>
+
+<ul>
+<li>too big to be a single stock object <div class='subtext'>4MB</div></li>
+
+<li>i don&#8217;t query across multiple collections</li>
+
+<li>little memory overheads impact to me <div class='subtext'>(~4KB per collection)</div></li>
+</ul>
+</div>
+
+	<div class="slide">
+	<h1 id='performance_tuning'>Performance Tuning</h1>
+
+<h2 id='measure_and_tune'>Measure and Tune</h2>
+</div>
+
+	<div class="slide">
+	<h2 id='mongo_commands_for_measure'>Mongo: Commands for measure</h2>
+
+<h3 id='demo'>DEMO</h3>
+
+<ul>
+<li>db.setProfilingLevel(2, 100)<div class='subtext'>see db.system.profile then use EXPLAIN</div></li>
+
+<li>db.serverStatus()</li>
+
+<li>db.stats()</li>
+
+<li>db.collectionName.stats()</li>
+
+<li>mongostat <div class='subtext'>number of insert per second, amount of memory mapped</div></li>
+</ul>
+</div>
+
+	<div class="slide">
+	<h2 id='macosx_commands_for_measure'>MacOSX: Commands for measure</h2>
+
+<h3 id='demo'>DEMO</h3>
+
+<ul>
+<li>vm_stat</li>
+
+<li>iostat 1 10</li>
+
+<li>lsof | grep mongod | grep TCP</li>
+</ul>
+</div>
+
+	<div class="slide">
+	<h2 id='tunings_and_issues'>Tunings and Issues</h2>
+
+<p>http://www.mongodb.org/display/DOCS/Optimization</p>
+</div>
+
+	<div class="slide">
+	<h2 id='tunings_i_did'>Tunings i did</h2>
+
+<ul>
+<li>compare to Redis</li>
+
+<li>index <div class='subtext'>(every sort and find column, be careful of the index size)</div></li>
+
+<li>shorter names and data</li>
+
+<li>query before updating</li>
+
+<li>Capped collection (Caution of update)</li>
+</ul>
+</div>
+
+	<div class="slide">
+	<h2 id='issues'>Issues</h2>
+
+<ul>
+<li>32-bits CPU</li>
+
+<li>Windows</li>
+</ul>
+</div>
+
+	<div class="slide">
+	<h2 id='thanks'>Thanks</h2>
+
+<ul>
+<li>my email: eddie@thought-sauce.com</li>
+</ul>
+
+<p><em><a href='http://codeaholics.hk'>http://codeaholics.hk</a></em></p>
+
+<p><em><a href='http://groups.google.com/group/hkror'>http://groups.google.com/group/hkror</a></em></p>
+
+<p><em><a href='http://github.com/3dd13'>http://github.com/3dd13</a></em></p>
+
+<p><em><a href='http://ru05team@blogspot.com'>http://ru05team@blogspot.com</a></em></p>
+
+<p><em><a href='http://thought-sauce.com'>http://thought-sauce.com</a></em></p>
+</div>
+
+	<div class="slide">
+	<h2 id='join'>Join</h2>
+
+<h1 id='codeaholics'>codeaholics</h1>
+
+<h2 id='and'>and</h2>
+
+<h1 id='hkror_google_group'>hkror google group!</h1>
+</div>
+
+    </div>
+    
+    <div id="footer">
+      <a href="http://github.com/3dd13">3dd13</a> - <a href="http://thought-sauce.com">Thought Sauce</a> - <a href="http://ru05team.blogspot.com">RU05</a>
+    </div>
+  </div>
+</body>
+</html>
