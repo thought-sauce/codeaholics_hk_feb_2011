@@ -1,11 +1,11 @@
 After Revamp - Software
 -------------
 
-###Scala
-Swing, Scaml, Mongo (thru casbah)
 ###Crawler
 Ruby, Mechanize
+###Analyzer
+Scala, Swing, Scaml, Mongo (thru casbah)
 ###Web UI
-Rails Mongoid, jquery.datatable
+Rails, jquery, jquery.datatable, Mongo (thru Mongoid)
 ###Chart
 jQuery, jqplot
