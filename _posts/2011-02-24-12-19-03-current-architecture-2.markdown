@@ -6,6 +6,6 @@ Ruby, Mechanize
 ###Analyzer
 Scala, Swing, Scaml, Mongo (thru casbah)
 ###Web UI
-Rails, jquery, jquery.datatable, Mongo (thru Mongoid)
+Rails, jquery, datatable, Mongo (thru Mongoid)
 ###Chart
 jQuery, jqplot
